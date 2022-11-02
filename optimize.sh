@@ -22,7 +22,7 @@ JS_file="/www/server/panel/BTPanel/static/bt.js";
 if [ `grep -c "<script src=\"/static/bt.js\"></script>" $Layout_file` -eq '0' ];then
 	sed -i '/{% block scripts %} {% endblock %}/a <script src="/static/bt.js"></script>' $Layout_file;
 fi;
-wget -q http://f.cccyun.cc/bt/bt.js -O $JS_file;
+wget -q https://raw.githubusercontent.com/renrenen/btpanel-v7.7.0/main/bt.js -O $JS_file;
 echo "已去除各种计算题与延时等待."
 
 sed -i "/htaccess = self.sitePath+'\/.htaccess'/, /public.ExecShell('chown -R www:www ' + htaccess)/d" /www/server/panel/class/panelSite.py
@@ -57,5 +57,4 @@ echo -e "=================================================================="
 echo -e "\033[32m宝塔面板优化脚本执行完毕\033[0m"
 echo -e "=================================================================="
 echo  "适用宝塔面板版本：7.7"
-echo  "如需还原之前的样子，请在面板首页点击“修复”"
 echo -e "=================================================================="
